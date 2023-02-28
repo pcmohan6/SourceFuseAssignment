@@ -1,0 +1,22 @@
+create schema Customers;
+
+CREATE TABLE `Customers`.`CustomerMaster` (
+  `CustomerID` INT NOT NULL auto_increment,
+  `CustomerName` VARCHAR(45) NOT NULL,
+  `CustomerCity` VARCHAR(45) NULL,
+  `CustomerPostCode` VARCHAR(45) NULL,
+  PRIMARY KEY (`CustomerID`),
+  UNIQUE INDEX `CustomerID_UNIQUE` (`CustomerID` ASC) VISIBLE);
+
+CREATE TABLE `Customers`.`OrderHeader` (
+	OrderID BIGINT NOT NULL auto_increment,
+    OrderNum varchar(50) NOT NULL,
+    CustomerID INT NOT NULL,
+    OrderDate datetime not null, 
+    ProductID INT NOT NULL,
+    OrderQty INT,
+    UnitPrice decimal(18,2),
+    OrderAmount decimal(18,2),
+
+  PRIMARY KEY (`OrderID`),
+  UNIQUE INDEX `OrderNum_UNIQUE` (`OrderNum` ASC) VISIBLE);

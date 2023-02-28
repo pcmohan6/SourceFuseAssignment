@@ -1,0 +1,15 @@
+﻿version: '3'
+services:
+  database:
+        image: mysql: 8.0.32
+        environment:
+            MYSQL_ROOT_PASSWORD: 'root'
+            MYSQL_DATABASE: customers
+        ports:
+            - "3306:3306"
+  SourceFuseSampleAPI:
+    build: .
+    ports:
+      - "8000:5000"
+    depends_on:
+      - database
